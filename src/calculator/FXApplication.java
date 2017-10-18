@@ -59,8 +59,20 @@ public void start(Stage primaryStage) {
     Button minus = new Button("-");
     HBox hbMinus = new HBox(10);
     hbMinus.setAlignment(Pos.BOTTOM_RIGHT);
-    hbPlus.getChildren().add(minus);
-    grid.add(hbMinus, 1, 3);
+    hbMinus.getChildren().add(minus);
+    grid.add(hbMinus, 2, 4);
+    
+    Button mult = new Button("x");
+    HBox hbMult = new HBox(10);
+    hbMult.setAlignment(Pos.BOTTOM_RIGHT);
+    hbMult.getChildren().add(mult);
+    grid.add(hbMult, 3, 4);
+    
+    Button div = new Button("/");
+    HBox hbDiv = new HBox(10);
+    hbDiv.setAlignment(Pos.BOTTOM_RIGHT);
+    hbDiv.getChildren().add(div);
+    grid.add(hbDiv , 4, 4);
 
     final Text actiontarget = new Text();
     
@@ -105,6 +117,54 @@ public void start(Stage primaryStage) {
             System.out.println(num2i);
             
             int ans = num1i - num2i;
+            System.out.println(ans);
+            actiontarget.setFill(Color.FIREBRICK);
+            String sAns = Integer.toString(ans);
+            actiontarget.setText(sAns);
+
+            
+        }
+    });
+    mult.setOnAction(new EventHandler<ActionEvent>() {
+
+        @Override
+        public void handle(ActionEvent e) {
+            
+            CharSequence num1 = numberOneTextField.getCharacters();
+            String num1s = num1.toString();
+            int num1i = Integer.parseInt(num1s);
+            System.out.println(num1i);
+            
+            CharSequence num2 = numberTwoTextField.getCharacters();
+            String num2s = num2.toString();
+            int num2i = Integer.parseInt(num2s);
+            System.out.println(num2i);
+            
+            int ans = num1i * num2i;
+            System.out.println(ans);
+            actiontarget.setFill(Color.FIREBRICK);
+            String sAns = Integer.toString(ans);
+            actiontarget.setText(sAns);
+
+            
+        }
+    });
+    div.setOnAction(new EventHandler<ActionEvent>() {
+
+        @Override
+        public void handle(ActionEvent e) {
+            
+            CharSequence num1 = numberOneTextField.getCharacters();
+            String num1s = num1.toString();
+            int num1i = Integer.parseInt(num1s);
+            System.out.println(num1i);
+            
+            CharSequence num2 = numberTwoTextField.getCharacters();
+            String num2s = num2.toString();
+            int num2i = Integer.parseInt(num2s);
+            System.out.println(num2i);
+            
+            int ans = num1i / num2i;
             System.out.println(ans);
             actiontarget.setFill(Color.FIREBRICK);
             String sAns = Integer.toString(ans);
